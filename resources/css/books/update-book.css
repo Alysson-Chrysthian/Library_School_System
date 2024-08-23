@@ -1,0 +1,19 @@
+#update-book {
+    padding: 10px;
+}
+
+#update-book h1 {
+    text-align: center;
+}
+
+#update-book div.btn-group {
+    text-align: center; 
+    display: block;
+    margin-top: 10px;
+}
+
+main > div {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+}

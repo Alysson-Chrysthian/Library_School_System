@@ -1,0 +1,28 @@
+body {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+}
+
+/*Main settings*/
+main {
+    display: grid;
+    grid-template-rows: 1fr 100px;
+}
+
+main > div {
+    margin: auto;
+    max-width: 700px;
+}
+
+/*Footer settings*/
+footer {
+    border: 1px solid var(--transparent-black);
+    color: var(--dark-orange);
+    font-weight: 500;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}

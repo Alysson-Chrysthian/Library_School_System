@@ -1,0 +1,79 @@
+header * {
+    user-select: none;
+}
+
+header {
+    padding: 30px 50px 30px 30px;
+    background-color: var(--dark-green);
+    z-index: 1;
+    min-width: 220px;
+    width: 220px;
+    max-width: 220px;
+    display: block;
+    min-height: 100vh;
+}
+
+nav ion-icon {
+    transform: translateY(3px);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+nav ul.submenu {
+    padding-left: 20px;
+    display: none;
+}
+
+
+nav ul li {
+    cursor: pointer;
+    display: block;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+nav > ul > li > span,
+nav > ul > li > span a {
+    font-size: 1rem;
+    color: var(--dark-orange);
+    font-weight: 500;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    text-wrap: nowrap;
+    position: relative;
+}
+
+nav ul li div.underline {
+    width: 0px;
+    height: 3px;
+    transition: all 0.15s;
+    background-color: var(--dark-orange);
+    position: absolute;
+}
+
+nav ul li ul li div.underline {
+    background-color: var(--dark-orange);
+} 
+
+nav ul li a:hover div.underline, 
+nav ul li:hover span div.underline,
+nav > ul > li:first-child:hover div.underline {
+    width: 100%;
+}
+
+nav ul li:first-child {
+    position: relative;
+    display: inline-block;
+}
+
+nav ul li span {
+    position: relative;
+    display: inline-block;
+}

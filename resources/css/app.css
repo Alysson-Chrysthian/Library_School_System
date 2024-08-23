@@ -1,0 +1,78 @@
+:root {
+    --transparent-black: #0000003f;
+    --dark-green: #036803;
+    --dark-orange: #ffa600;
+    --error-color: #ff0000;
+    --message-background-color: #0080002c;
+    --error-background-color: #ff00002c;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.error {
+    color: var(--error-color);
+}
+
+.error::before {
+    content: '*';
+}
+
+.success_message,
+.error_message {
+    color: var(--dark-green);
+    background-color: var(--message-background-color);
+    padding: 5px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+
+.error_message {
+    color: var(--error-color);
+    background-color: var(--error-background-color);
+}
+
+/*Form settings*/
+main > div .form-control {
+    border: 1px solid var(--transparent-black);
+}
+
+main > div .form-select {
+    border: 1px solid var(--transparent-black);
+}
+
+main > div .btn-success, 
+main > div .btn-success:hover,
+main > div .btn-success:active, 
+.btn-warning {
+    border: 1px solid var(--transparent-black);
+    background-color: var(--dark-green);
+    color: white;
+}
+
+main > div .btn-success:hover {
+    filter: contrast(1.4);
+}
+
+main > div .btn-warning, 
+main > div .btn-warning:hover,
+main > div .btn-warning:active {
+    background-color: var(--dark-orange);
+    color: white;
+    border: 1px solid var(--transparent-black);
+}
+
+main > div .btn-warning:hover {
+    filter: contrast(0.65);
+}

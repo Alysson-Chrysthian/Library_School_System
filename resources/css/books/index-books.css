@@ -1,0 +1,48 @@
+#show_all_books {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+#show_all_books > div {
+    width: 60vw;
+    overflow: auto;
+}
+
+#show_all_books table {
+    width: 850px;
+    cursor: pointer;
+}
+
+td, tr, th {
+    border: 1px solid var(--transparent-black);
+    text-align: center;
+}
+
+#show_all_books ion-icon {
+    font-size: 2em;
+    visibility: visible;
+}
+
+#show_all_books td:hover ion-icon {
+    filter: opacity(0.6);
+}
+
+td a {
+    color: black;
+}
+
+main > div {
+    margin: 10px auto;
+}
+
+main > div form {
+    margin: 15px;
+}
+
+main > div form div.col-md-2 {
+    transform: translateX(-15px);
+}
