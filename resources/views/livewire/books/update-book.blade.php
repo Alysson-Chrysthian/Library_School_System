@@ -3,12 +3,12 @@
 </x-slot:styles>
 
 <div id="update-book">
-    @if (isset($success_message))
-        <span class="success_message">{{ $success_message }}</span>
-    @endif
-    @if (isset($warning_message))
-        <span class="error_message">{{ $warning_message }}</span>
-    @endif
+
+    @livewire('components.message-modal', [
+        'message' => $message,
+        'status' => $status,
+    ])
+
     <h1>Editar Livro</h1>
     <form wire:submit.prevent="update">
         <div class="form-group">

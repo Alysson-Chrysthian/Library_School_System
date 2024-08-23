@@ -2,14 +2,16 @@
 
 namespace App\Livewire\Authors;
 
+use App\Livewire\Traits\Messages;
 use App\Models\Author;
 use Exception;
 use Livewire\Component;
+use Illuminate\Support\Str;
 
 class AddAuthorForm extends Component
 {
-    public $success_message;
-    public $warning_message;
+    use Messages;
+
     public $name;
 
     public function rules()
@@ -33,23 +35,23 @@ class AddAuthorForm extends Component
 
     public function save() 
     {    
-        $this->success_message = null;
-        $this->warning_message = null;
+        $this->message = null;
+        $this->status = null;
 
         $validatedData = $this->validate();
         
         try {
             Author::create($validatedData);
         } catch (Exception $e) {
-            $this->warning_message = __('message.register_failed', [
+            $this->setMessage(__('message.register_failed', [
                 'attribute' => 'autor',
-            ]);
+            ]), 'error');
             return;
         }
 
-        $this->success_message = __('message.register_success', [
+        $this->setMessage(__('message.register_success', [
             'attribute' => 'autor',
-        ]);
+        ]), 'success');
     }
 
     public function render()

@@ -43,6 +43,6 @@ main > div form {
     margin: 15px;
 }
 
-main > div form div.col-md-2 {
-    transform: translateX(-15px);
+.form-control {
+    margin-top: 5px;
 }

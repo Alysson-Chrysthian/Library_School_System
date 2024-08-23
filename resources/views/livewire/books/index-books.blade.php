@@ -7,11 +7,11 @@
 
     <form wire:submit.prevent="$refresh">
         <div class="row">
-            <div class="col">
+            <div class="form-group">
                 <input type="search" class="form-control" placeholder="Pesquisar" wire:model="search">
             </div>
-            <div class="col-md-2">
-                <button type="submit" class="btn btn-primary"><ion-icon name="search-outline" style="font-size: 1em"></ion-icon></button>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary form-control"><ion-icon name="search-outline" style="font-size: 1em"></ion-icon></button>
             </div>
         </div>
     </form>

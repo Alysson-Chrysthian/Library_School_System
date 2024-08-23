@@ -70,6 +70,26 @@
         })
     });
     </script>
+    <script>
+        document.addEventListener('livewire:init', () => {
+            const modal = document.querySelector('.modal');
+            
+            if (modal != null) {
+                Livewire.on('set_message', (message) => {
+                    document.querySelector('.modal-title').innerText = message[1];
+                    document.querySelector('.modal-body').innerText = message[0];
+
+                    modal.style.display = 'block';
+                });
+                document.querySelector('#close_button').addEventListener('click', () => {
+                    modal.style.display = 'none';
+
+                    Livewire.dispatch('clear_messages');
+                })
+            }
+        })
+    </script>
+
     @if(isset($scripts))
         {{ $scripts }}
     @endif

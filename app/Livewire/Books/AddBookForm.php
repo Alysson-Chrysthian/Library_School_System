@@ -2,17 +2,17 @@
 
 namespace App\Livewire\Books;
 
+use App\Livewire\Traits\Messages;
 use App\Models\Author;
 use App\Models\Book;
 use App\Models\Category;
 use Exception;
 use Livewire\Component;
+use Livewire\Attributes\On;
 
 class AddBookForm extends Component
 {
-
-    public $success_message;
-    public $warning_message;
+    use Messages;
 
     public $title;
     public $author_id;
@@ -55,23 +55,23 @@ class AddBookForm extends Component
 
     public function save()
     {
-        $this->success_message = null;
-        $this->warning_message = null;
+        $this->message = null;
+        $this->status = null;
 
         $validatedData = $this->validate();
 
         try {
             Book::create($validatedData);
         } catch (Exception $e) {
-            $this->warning_message = __('message.register_failed', [
+            $this->setMessage(__('message.register_failed', [
                 'attribute' => 'livro',
-            ]);
+            ]), 'error');
             return;
         }
 
-        $this->success_message = __('message.register_success', [
+        $this->setMessage(__('message.register_success', [
             'attribute' => 'livro',
-        ]);
+        ]), 'success');
     }
 
     public function render()

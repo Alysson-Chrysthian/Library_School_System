@@ -2,15 +2,15 @@
 
 namespace App\Livewire\Categories;
 
+use App\Livewire\Traits\Messages;
 use App\Models\Category;
 use Exception;
 use Livewire\Component;
 
 class AddCategoryForm extends Component
 {
+    use Messages;
 
-    public $warning_message;
-    public $success_message;
     public $category;
 
     public function rules()
@@ -34,23 +34,23 @@ class AddCategoryForm extends Component
 
     public function save()
     {
-        $this->success_message = null;
-        $this->warning_message = null;
+        $this->message = null;
+        $this->status = null;
 
         $validatedData = $this->validate();
 
         try {
             Category::create($validatedData);
         } catch (Exception $e) {
-            $this->warning_message = __('message.register_failed', [
+            $this->setMessage(__('message.register_failed', [
                 'attribute' => 'categoria',
-            ]);
+            ]), 'error');
             return;
         }
 
-        $this->success_message = __('message.register_success', [
+        $this->setMessage(__('message.register_success', [
             'attribute' => 'categoria'
-        ]);
+        ]), 'success');
     }
 
     public function render()

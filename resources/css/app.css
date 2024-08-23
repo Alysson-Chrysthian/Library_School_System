@@ -76,3 +76,12 @@ main > div .btn-warning:active {
 main > div .btn-warning:hover {
     filter: contrast(0.65);
 }
+
+.modal {
+    background-color: var(--transparent-black);
+}
+
+.modal-title {
+    text-transform: capitalize;
+    font-size: 1.5em;
+}

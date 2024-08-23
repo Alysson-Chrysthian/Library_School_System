@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Books;
 
+use App\Livewire\Traits\Messages;
 use App\Models\Author;
 use App\Models\Book;
 use App\Models\Category;
@@ -10,10 +11,9 @@ use Livewire\Component;
 
 class UpdateBook extends Component
 {
-    public $book;
+    use Messages;
 
-    public $success_message;
-    public $warning_message;
+    public $book;
 
     public $id;
 
@@ -67,23 +67,23 @@ class UpdateBook extends Component
 
     public function update()
     {
-        $this->success_message = null;
-        $this->warning_message = null;
+        $this->message = null;
+        $this->status = null;
 
         $validatedData = $this->validate();
 
         try {
             Book::where('id', $this->book->id)->update($validatedData);
         } catch (Exception $e) {
-            $this->warning_message = __('message.update_failed', [
+            $this->setMessage(__('message.update_failed', [
                 'attribute' => 'livro',
-            ]);
+            ]), 'error');
             return;
         }
 
-        $this->success_message = __('message.update_success', [
+        $this->setMessage(__('message.update_success', [
             'attribute' => 'livro',
-        ]);
+        ]), 'success');
     }
 
     public function render()
