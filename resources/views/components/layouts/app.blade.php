@@ -11,6 +11,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
+    {{-- JQuery --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     {{-- Favicon --}}
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
@@ -48,41 +51,25 @@
     {{-- Scripts --}}
     @vite('resources/js/app.js')
     <script>
-    const menuToggle = document.querySelectorAll('.menu-toggle');
+        const toggleMenu = $('.menu-toggle');
 
-    menuToggle.forEach(element => {
-        element.addEventListener('click', function () {
-            let subMenu = this.nextElementSibling;
-            
-            console.log(subMenu.style);
-
-            switch (subMenu.style.display) {
-                case '':
-                    subMenu.style.display = 'block';
-                    break;
-                case 'none':
-                    subMenu.style.display = 'block'
-                    break;
-                case 'block':
-                    subMenu.style.display = 'none';
-                    break;
-            }
+        toggleMenu.on('click', (event) => {
+            $(event.target).next('.submenu').slideToggle()
         })
-    });
     </script>
     <script>
-        document.addEventListener('livewire:init', () => {
-            const modal = document.querySelector('.modal');
+        $(document).on('livewire:init', () => {
+            const modal = $('.modal');
             
             if (modal != null) {
                 Livewire.on('set_message', (message) => {
-                    document.querySelector('.modal-title').innerText = message[1];
-                    document.querySelector('.modal-body').innerText = message[0];
+                    $('.modal-title').text(message[1]);
+                    $('.modal-body').text(message[0]);
 
-                    modal.style.display = 'block';
+                    modal.css('display', 'block');
                 });
-                document.querySelector('#close_button').addEventListener('click', () => {
-                    modal.style.display = 'none';
+                $('#close_button').on('click', () => {
+                    modal.css('display', 'none');
 
                     Livewire.dispatch('clear_messages');
                 })

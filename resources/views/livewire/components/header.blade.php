@@ -13,7 +13,7 @@
                     Livros <ion-icon name="book-outline"></ion-icon>
                     <div class="underline"></div>
                 </span>
-                    <ul class="submenu">
+                <ul class="submenu">
                     <li>
                         <a href="{{ route('book.add') }}">
                             Adicionar livro

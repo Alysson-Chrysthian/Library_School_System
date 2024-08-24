@@ -21,7 +21,7 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
                             <span class="page-link">@lang('pagination.previous')</span>
                         </li>
                     @else
-                        <li class="page-item">
+                        <li class="page-item" >
                             <button type="button" dusk="previousPage{{ $paginator->getPageName() == 'page' ? '' : '.' . $paginator->getPageName() }}" class="page-link" wire:click="previousPage('{{ $paginator->getPageName() }}')" x-on:click="{{ $scrollIntoViewJsSnippet }}" wire:loading.attr="disabled">@lang('pagination.previous')</button>
                         </li>
                     @endif
