@@ -16,7 +16,7 @@
         </div>
     </form>
 
-    {{ $books->links() }}
+    {{ $books->onEachSide(1)->links() }}
 
     <div class="table-responsive">
     @if (count($books) > 0) 
