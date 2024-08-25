@@ -22,3 +22,15 @@ Route::name('book.')
 
     });
 
+Route::name('student.')
+    ->prefix('student')
+    ->group(function () {
+
+        Route::get('/add', App\Livewire\Students\AddStudentForm::class)
+            ->name('add');
+        Route::get('/show', App\Livewire\Students\IndexStudents::class)
+            ->name('index');
+        Route::get('/update/{registration}', App\Livewire\Students\UpdateStudentsForm::class)
+            ->name('edit');
+
+    });

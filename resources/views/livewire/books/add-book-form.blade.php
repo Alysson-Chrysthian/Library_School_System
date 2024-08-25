@@ -1,7 +1,3 @@
-<x-slot:styles>
-    @vite('resources/css/books/add-book-form.css')
-</x-slot:styles>
-
 <div id="add_book_form">
 
     @livewire('components.message-modal', [

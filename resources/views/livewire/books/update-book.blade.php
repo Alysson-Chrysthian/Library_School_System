@@ -1,7 +1,3 @@
-<x-slot:styles>
-    @vite('resources/css/books/update-book.css')
-</x-slot:styles>
-
 <div id="update-book">
 
     @livewire('components.message-modal', [

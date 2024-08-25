@@ -44,6 +44,19 @@ body, html {
 }
 
 /*Form settings*/
+main > div {
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main div h1 {
+    text-align: center;
+}
+
 main > div .form-control {
     border: 1px solid var(--transparent-black);
 }
@@ -84,4 +97,10 @@ main > div .btn-warning:hover {
 .modal-title {
     text-transform: capitalize;
     font-size: 1.5em;
+}
+
+main > div .btn-group {
+    text-align: center; 
+    display: block;
+    margin-top: 10px;
 }

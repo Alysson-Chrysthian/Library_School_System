@@ -47,13 +47,13 @@
                 </span>
                 <ul class="submenu">
                     <li>
-                        <a href="">
+                        <a href="{{ route('student.add') }}">
                             Cadastrar
                             <div class="underline"></div>
                         </a> 
                     </li>
                     <li>
-                        <a href="">
+                        <a href="{{ route('student.index') }}">
                             Ver Alunos
                             <div class="underline"></div>
                         </a> 

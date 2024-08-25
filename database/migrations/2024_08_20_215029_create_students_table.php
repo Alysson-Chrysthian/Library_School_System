@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->string('registration')->primary();
             $table->string('name');
-            $table->string('class');
+            $table->enum('class', [1, 2, 3]);
+            $table->enum('course', ['A', 'B', 'C', 'D']);
             $table->string('phone');
             $table->date('birthday');
             $table->timestamps();

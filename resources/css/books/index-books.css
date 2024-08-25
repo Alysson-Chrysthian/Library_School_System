@@ -1,4 +1,4 @@
-#show_all_books {
+main > div {
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -7,12 +7,12 @@
     width: 100%;
 }
 
-#show_all_books > div {
+main > div > div {
     width: 60vw;
     overflow: auto;
 }
 
-#show_all_books table {
+main > div table {
     width: 850px;
     cursor: pointer;
 }
@@ -22,12 +22,12 @@ td, tr, th {
     text-align: center;
 }
 
-#show_all_books ion-icon {
+main > div ion-icon {
     font-size: 2em;
     visibility: visible;
 }
 
-#show_all_books td:hover ion-icon {
+main > div td:hover ion-icon {
     filter: opacity(0.6);
 }
 
