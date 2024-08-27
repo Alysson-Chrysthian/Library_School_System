@@ -49,12 +49,19 @@ class AddBorrowForm extends Component
 
         $this->validate();
 
+        $book = Book::find($this->book);
+
+        if ($book->avaliables - $book->borrowed <= 0) {
+            return redirect()->back()->with([
+                'message' => 'O livro requerido não possui copias disponiveis'
+            ]);
+        }
+
         try {
             Borrow::create([
                 'student_registration' => $this->student,
                 'book_id' => $this->book,
                 'return_date' => $this->return_date,
-                'borrow_date' => Carbon::now(),
                 'librarian_id' => Auth::id(),
             ]);
         } catch (Exception $e) {
@@ -63,6 +70,10 @@ class AddBorrowForm extends Component
             ]), 'error');
             return;
         }
+
+        $book->update([
+            'borrowed' => ($book->borrowed += 1),
+        ]);
 
         $this->setMessage(__('message.register_success', [
             'attribute' => 'empréstimo',

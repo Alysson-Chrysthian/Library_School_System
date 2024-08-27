@@ -73,7 +73,7 @@
                         </a> 
                     </li>
                     <li>
-                        <a href="">
+                        <a href="{{ route('borrows.index') }}">
                             Ver Empréstimos
                             <div class="underline"></div>
                         </a> 

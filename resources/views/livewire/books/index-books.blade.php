@@ -30,9 +30,9 @@
                 <th scope="col">Setor</th>
                 <th scope="col">Estante</th>
                 <th scope="col">Pratileira</th>
-                <td scope="col">Copias disponiveis</td>
-                <td scope="col">Copias emprestadas</td>
-                <td scope="col">Total de copias</td>
+                <th scope="col">Copias disponiveis</td>
+                <th scope="col">Copias emprestadas</td>
+                <th scope="col">Total de copias</td>
                 <th>Excluir</th>
                 <th>Editar</th>
             </thead>
@@ -51,10 +51,10 @@
                         <td>
                             {{ ($book->avaliables - count($book->loans)) == 0 ? "indisponivel" : $book->avaliables - count($book->loans) }}
                         </td>
-                        <td>{{ count($book->loans) }}</td>
+                        <td>{{ $book->borrowed }}</td>
                         <td>{{ $book->avaliables }}</td>
                         <td 
-                            wire:click="delete({{ $book->id }})" wire:confirm="Você realmente deseja deletar este livro?"
+                            wire:click="delete({{ $book->id }})" wire:confirm="Se você deletar este livro todos os empréstimos e reservas associados a ele tambem serao excluidos, tem certeza de que deseja continuar?"
                         >
                             <ion-icon name="close-circle-outline"></ion-icon>
                         </td>

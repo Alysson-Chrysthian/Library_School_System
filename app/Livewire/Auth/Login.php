@@ -35,7 +35,14 @@ class Login extends Component
     public function login() 
     {
         $validatedData = $this->validate();
-    
+
+        //Temp
+        /*Librarian::create([
+            'email' => $this->email,
+            'password' => Hash::make($this->password),
+        ]);
+        return;*/
+
         if (Auth::attempt($validatedData)) {
             return redirect()->route('dashboard');
         }

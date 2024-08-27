@@ -7,6 +7,10 @@
 
     <h1>Emprestar Livro</h1>
 
+    @if (session()->has('message'))
+        <span class="error">{{ session()->get('message') }}</span>
+    @endif
+
     <form wire:submit.prevent="save">
         <div class="form-group">
             <label for="student">Aluno</label>

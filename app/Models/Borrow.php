@@ -13,10 +13,28 @@ class Borrow extends Model
 
     protected $fillable = [
         'return_date',
-        'borrow_date',
         'late',
         'book_id',
         'librarian_id',
         'student_registration',
     ];
+
+    protected $casts = [
+        'return_date' => 'datetime',
+    ];
+
+    public function librarian() 
+    {
+        return $this->hasOne(Librarian::class, 'id', 'librarian_id');
+    }
+
+    public function student() 
+    {
+        return $this->hasOne(Student::class, 'registration', 'student_registration');
+    }
+
+    public function book()
+    {
+        return $this->hasOne(Book::class, 'id', 'book_id');
+    }
 }

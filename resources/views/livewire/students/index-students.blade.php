@@ -48,7 +48,7 @@
                         <td>{{ $student->birthday }}</td>
                         <td
                             wire:click="delete({{ $student->registration }})"
-                            wire:confirm="Tem certeza que deseja continuar?"    
+                            wire:confirm="se você deletar este aluno todos os empréstimos associados a ele tambem serao apagados, Tem certeza que deseja continuar?"    
                         >
                             <ion-icon name="close-circle-outline">
                         </td>

@@ -59,5 +59,7 @@ Route::name('borrows.')
 
         Route::get('/add', App\Livewire\Borrows\AddBorrowForm::class)
             ->name('add');
+        Route::get('/show', App\Livewire\Borrows\IndexBorrows::class)
+            ->name('index');
 
     });

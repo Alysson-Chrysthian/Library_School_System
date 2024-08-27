@@ -20,6 +20,7 @@ main > div table {
 td, tr, th {
     border: 1px solid var(--transparent-black);
     text-align: center;
+    text-wrap: nowrap;
 }
 
 main > div ion-icon {

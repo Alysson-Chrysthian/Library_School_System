@@ -16,13 +16,19 @@ return new class extends Migration
     {
         Schema::create('borrows', function (Blueprint $table) {
             $table->id();
-            $table->date('return_date');
-            $table->date('borrow_date');
+            $table->timestamp('return_date');
             $table->boolean('late')->default(0);
-            $table->foreignIdFor(Book::class);
-            $table->foreignIdFor(Librarian::class);
+            $table->foreignIdFor(Book::class)
+                ->constrained()
+                ->cascadeOnDelete();
+            $table->foreignIdFor(Librarian::class)
+                ->constrained()
+                ->cascadeOnDelete();
             $table->string('student_registration');
-            $table->foreign('student_registration')->references('registration')->on('students');
+            $table->foreign('student_registration')
+                ->references('registration')
+                ->on('students')
+                ->cascadeOnDelete();
             $table->timestamps();
         });
     }
