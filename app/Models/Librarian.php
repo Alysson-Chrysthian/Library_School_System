@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User;
 
-class Librarian extends Model
-{
-    use HasFactory;
+class Librarian extends User {
+    use HasFactory, Authenticatable;
 
     protected $table = 'librarians';
 

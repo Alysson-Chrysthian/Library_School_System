@@ -12,6 +12,7 @@ export default defineConfig({
                 'resources/css/livewire/header.css',
                 'resources/css/author/add-author-form.css',
                 'resources/css/books/index-books.css',
+                'resources/css/components/layouts/auth.css',
             ],
             refresh: true,
         }),

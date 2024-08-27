@@ -104,3 +104,8 @@ main > div .btn-group {
     display: block;
     margin-top: 10px;
 }
+
+
+td {
+    text-wrap: nowrap;
+}

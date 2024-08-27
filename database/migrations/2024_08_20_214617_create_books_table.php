@@ -20,6 +20,7 @@ return new class extends Migration
             $table->enum('sector', ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L']);
             $table->integer('shelf');
             $table->integer('bookcase');
+            $table->integer('borrowed')->default(0);
             $table->integer('avaliables');
             $table->foreignIdFor(Author::class);
             $table->foreignIdFor(Category::class);

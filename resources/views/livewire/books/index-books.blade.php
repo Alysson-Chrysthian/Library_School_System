@@ -30,6 +30,9 @@
                 <th scope="col">Setor</th>
                 <th scope="col">Estante</th>
                 <th scope="col">Pratileira</th>
+                <td scope="col">Copias disponiveis</td>
+                <td scope="col">Copias emprestadas</td>
+                <td scope="col">Total de copias</td>
                 <th>Excluir</th>
                 <th>Editar</th>
             </thead>
@@ -37,7 +40,7 @@
             <tbody>
                 @foreach ($books as $book)
                     <tr>
-                        <th scope="row">{{ $book->id }}</th>
+                        <td>{{ $book->id }}</td>
                         <td>{{ $book->title }}</td>
                         <td>{{ $book->author->name }}</td>
                         <td>{{ $book->category->category }}</td>
@@ -45,6 +48,11 @@
                         <td>{{ $book->sector }}</td>
                         <td>{{ $book->bookcase }}</td>
                         <td>{{ $book->shelf }}</td>
+                        <td>
+                            {{ ($book->avaliables - count($book->loans)) == 0 ? "indisponivel" : $book->avaliables - count($book->loans) }}
+                        </td>
+                        <td>{{ count($book->loans) }}</td>
+                        <td>{{ $book->avaliables }}</td>
                         <td 
                             wire:click="delete({{ $book->id }})" wire:confirm="Você realmente deseja deletar este livro?"
                         >

@@ -1,0 +1,20 @@
+main > div {
+    width: 400px;
+    flex-grow: 1;
+}
+
+main > div.btn-group {
+    width: 100%;
+}
+
+button {
+    width: 100%;
+    display: inline-block;
+}
+
+main {
+    height: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}

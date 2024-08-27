@@ -67,7 +67,7 @@
                 </span>
                 <ul class="submenu">
                     <li>
-                        <a href="">
+                        <a href="{{ route('borrows.add') }}">
                             Emprestar
                             <div class="underline"></div>
                         </a> 
