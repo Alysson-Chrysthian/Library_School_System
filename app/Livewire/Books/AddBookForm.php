@@ -55,8 +55,7 @@ class AddBookForm extends Component
 
     public function save()
     {
-        $this->message = null;
-        $this->status = null;
+        $this->clear_messages();
 
         $validatedData = $this->validate();
 

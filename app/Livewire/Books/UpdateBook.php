@@ -67,8 +67,7 @@ class UpdateBook extends Component
 
     public function update()
     {
-        $this->message = null;
-        $this->status = null;
+        $this->clear_messages();
 
         $validatedData = $this->validate();
 

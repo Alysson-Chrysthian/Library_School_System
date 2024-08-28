@@ -22,8 +22,12 @@ return new class extends Migration
             $table->integer('bookcase');
             $table->integer('borrowed')->default(0);
             $table->integer('avaliables');
-            $table->foreignIdFor(Author::class);
-            $table->foreignIdFor(Category::class);
+            $table->foreignIdFor(Author::class)
+                ->constrained()
+                ->cascadeOnDelete();
+            $table->foreignIdFor(Category::class)
+                ->constrained()
+                ->cascadeOnDelete();
             $table->timestamps();
         });
     }

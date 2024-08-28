@@ -6,21 +6,21 @@ use App\Livewire\Traits\Messages;
 use App\Models\Author;
 use Exception;
 use Livewire\Component;
-use Illuminate\Support\Str;
 
-class AddAuthorForm extends Component
+class UpdateAuthor extends Component
 {
     use Messages;
 
+    public $id;
     public $name;
 
-    public function rules()
+    public function rules() 
     {
         return [
-            'name' => ['required', 'string', 'min:2', 'max:60', 'unique:authors,name'],
+            'name' => ['required', 'string', 'min:2', 'max:60', 'unique:authors,name,' . $this->id]
         ];
     }
-    
+
     public function validationAttributes()
     {
         return [
@@ -33,30 +33,41 @@ class AddAuthorForm extends Component
         $this->validateOnly($propertyName);
     }
 
-    public function save() 
-    {    
+    public function mount($id)
+    {
+        $this->id = $id;
+        $author = Author::find($id);
+
+        if ($author == null) {
+            return redirect()->back();
+        }
+
+        $this->name = $author->name;
+    }
+
+    public function update()
+    {
         $this->clear_messages();
 
         $validatedData = $this->validate();
-        
+
         try {
-            Author::create($validatedData);
+            Author::where('id', $this->id)->update($validatedData);
         } catch (Exception $e) {
-            $this->setMessage(__('message.register_failed', [
-                'attribute' => 'autor',
+            $this->setMessage(__('message.update_failed', [
+                'attribute' => 'autor'
             ]), 'error');
             return;
-        }
+        } 
 
-        $this->setMessage(__('message.register_success', [
+        $this->setMessage(__('message.update_success', [
             'attribute' => 'autor',
         ]), 'success');
     }
 
     public function render()
     {
-        return view('livewire.authors.add-author-form')
+        return view('livewire.authors.update-author')
             ->slot('content');
     }
-
 }

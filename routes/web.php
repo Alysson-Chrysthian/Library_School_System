@@ -11,6 +11,16 @@ Route::middleware('auth')
             ->name('author.add');
         Route::get('category/add', App\Livewire\Categories\AddCategoryForm::class)
             ->name('category.add');
+        
+        Route::get('author/show', App\Livewire\Authors\IndexAuthor::class)
+            ->name('author.index');
+        Route::get('category/index', App\Livewire\Categories\IndexCategory::class)
+            ->name('category.index');
+
+        Route::get('author/edit/{id}', App\Livewire\Authors\UpdateAuthor::class)
+            ->name('author.edit');
+        Route::get('category/edit/{id}', App\Livewire\Categories\UpdateCategory::class)
+            ->name('category.edit');
 
     });
 

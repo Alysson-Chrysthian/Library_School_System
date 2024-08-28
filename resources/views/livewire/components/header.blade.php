@@ -33,8 +33,20 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{ route('author.index') }}">
+                            Ver autor
+                            <div class="underline"></div>
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ route('category.add') }}">
                             Adicionar categoria
+                            <div class="underline"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('category.index') }}">
+                            Ver categorias
                             <div class="underline"></div>
                         </a>
                     </li>
