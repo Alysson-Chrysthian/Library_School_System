@@ -42,8 +42,8 @@
                     <tr>
                         <td>{{ $book->id }}</td>
                         <td>{{ $book->title }}</td>
-                        <td>{{ $book->author->name }}</td>
                         <td>{{ $book->category->category }}</td>
+                        <td>{{ $book->author->name }}</td>
                         <td>{{ $book->cdd }}</td>
                         <td>{{ $book->sector }}</td>
                         <td>{{ $book->bookcase }}</td>

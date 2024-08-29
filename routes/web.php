@@ -73,3 +73,15 @@ Route::name('borrows.')
             ->name('index');
 
     });
+
+Route::middleware('auth')
+    ->name('reserve.')
+    ->prefix('reserve')
+    ->group(function () {
+
+        Route::get('/add', App\Livewire\Reserves\AddReserve::class)
+            ->name('add');
+        Route::get('/index', App\Livewire\Reserves\IndexReserve::class)
+            ->name('index');
+
+    });

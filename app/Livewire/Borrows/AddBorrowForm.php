@@ -23,7 +23,7 @@ class AddBorrowForm extends Component
     {
         return [
             'student' => ['required', 'integer', 'exists:students,registration'],
-            'book' => ['required', 'integer', 'exists:books,id'],
+            'book' => ['required', 'integer', 'exists:books,id', 'unique:borrows,book_id'],
             'return_date' => ['required', 'date'],
         ];
     }

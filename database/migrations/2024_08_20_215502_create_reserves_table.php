@@ -16,9 +16,14 @@ return new class extends Migration
         Schema::create('reserves', function (Blueprint $table) {
             $table->id();
             $table->dateTime('reserve_date');
-            $table->foreignIdFor(Book::class);
+            $table->foreignIdFor(Book::class)
+                ->constrained()
+                ->cascadeOnDelete();
             $table->string('student_registration');
-            $table->foreign('student_registration')->references('registration')->on('students');
+            $table->foreign('student_registration')
+                ->references('registration')
+                ->on('students')
+                ->cascadeOnDelete();
             $table->timestamps();
         });
     }

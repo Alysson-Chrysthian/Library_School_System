@@ -26,6 +26,7 @@
                 <th scope="col">Id do livro</th>
                 <th scope="col">Titulo do livro</th>
                 <th scope="col">Id do monitor</th>
+                <th scope="col">Nome do aluno</th>
                 <th scope="col">Matricula do aluno</th>
                 <th scope="col">Dia do empréstimo</th>
                 <th scope="col">Dia para devolução</th>
@@ -40,6 +41,7 @@
                         <td>{{ $loan->book->id }}</td>
                         <td>{{ $loan->book->title }}</td>
                         <td>{{ $loan->librarian->id }}</td>
+                        <td>{{ $loan->student->name }}</td>
                         <td>{{ $loan->student->registration }}</td>
                         <td>{{ $loan->created_at->format('d/m/Y') }}</td>
                         <td>{{ $loan->return_date->format('d/m/Y') }}</td>

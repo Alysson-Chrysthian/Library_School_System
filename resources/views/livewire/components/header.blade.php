@@ -99,13 +99,13 @@
                 </span>
                 <ul class="submenu">
                     <li>
-                        <a href="">
+                        <a href="{{ route('reserve.add') }}">
                             Reservar
                             <div class="underline"></div>
                         </a> 
                     </li>
                     <li>
-                        <a href="">
+                        <a href="{{ route('reserve.index') }}">
                             Ver Reservas
                             <div class="underline"></div>
                         </a> 
