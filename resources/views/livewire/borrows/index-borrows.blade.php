@@ -3,6 +3,11 @@
 </x-slot:styles>
 
 <div>
+    @livewire('components.message-modal', [
+        'message' => $message,
+        'stauts' => $status,
+    ])
+
     <h1>Empréstimos cadastrados</h1>
 
     <form wire:submit.prevent="$refresh">
@@ -31,6 +36,7 @@
                 <th scope="col">Dia do empréstimo</th>
                 <th scope="col">Dia para devolução</th>
                 <th scope="col">Atrasado</th>
+                <th scope="col">Entregar</th>
                 <th scope="col">Devolver</th>
             </thead>
 
@@ -46,6 +52,12 @@
                         <td>{{ $loan->created_at->format('d/m/Y') }}</td>
                         <td>{{ $loan->return_date->format('d/m/Y') }}</td>
                         <td>{{ $loan->late ? 'sim' : 'não' }}</td>
+                        <td
+                            wire:click='give({{ $loan->id }})'
+                            wire:confirm='Tem certeza de que deseja intregar o livro para a primeira pessoa que o reservou?'
+                        >
+                            <ion-icon name="arrow-forward-circle-outline"></ion-icon>
+                        </td>
                         <td
                             wire:click="return({{ $loan->id }})"
                             wire:confirm="Tem certeza que deseja realizar a devoluçao deste livro"

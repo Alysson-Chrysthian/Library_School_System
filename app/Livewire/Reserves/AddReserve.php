@@ -4,6 +4,7 @@ namespace App\Livewire\Reserves;
 
 use App\Livewire\Traits\Messages;
 use App\Models\Book;
+use App\Models\Borrow;
 use App\Models\Reserve;
 use App\Models\Student;
 use Carbon\Carbon;

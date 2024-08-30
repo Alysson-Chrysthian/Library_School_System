@@ -2,15 +2,19 @@
 
 namespace App\Livewire\Borrows;
 
+use App\Livewire\Traits\Messages;
 use App\Models\Book;
 use App\Models\Borrow;
+use App\Models\Reserve;
+use Carbon\Carbon;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class IndexBorrows extends Component
 {
-    use WithPagination;
+    use WithPagination, Messages;
 
     public $search;
 
@@ -29,6 +33,30 @@ class IndexBorrows extends Component
                 'message' => 'Não foi possivel fazer a devolução deste livro por favor tente novamente'
             ]);
         }
+    }
+
+    public function give($id)
+    {
+        $loan = Borrow::find($id);
+        $reserve = Reserve::where('book_id', $loan->book_id)->first();
+
+        try {
+            Borrow::create([
+                'return_date' => Carbon::now()->addWeeks(2),
+                'late' => 0,
+                'book_id' => $loan->book_id,
+                'librarian_id' => Auth::id(),
+                'student_registration' => $reserve->student->registration,
+            ]);
+
+            $loan->delete();
+            $reserve->delete();
+        } catch (Exception $e) {
+            $this->setMessage('A operação não pode ser concluida', 'error');
+            return;
+        }
+
+        $this->setMessage('A operação foi concluida com sucesso', 'success');
     }
 
     public function render()
