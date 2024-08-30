@@ -59,6 +59,7 @@ class AddBorrowForm extends Component
         try {
             Borrow::create([
                 'student_registration' => $this->student,
+                'late' => $this->return_date < Carbon::now() ? 1 : 0,
                 'book_id' => $this->book,
                 'return_date' => $this->return_date,
                 'librarian_id' => Auth::id(),

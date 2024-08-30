@@ -7,7 +7,6 @@ export default defineConfig({
             input: [
                 'resources/js/app.js',
                 'resources/css/app.css', 
-                'resources/css/dashboard.css',
                 'resources/css/components/layouts/app.css',
                 'resources/css/livewire/header.css',
                 'resources/css/author/add-author-form.css',

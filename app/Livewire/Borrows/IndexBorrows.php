@@ -39,6 +39,7 @@ class IndexBorrows extends Component
     {
         $loan = Borrow::find($id);
         $reserve = Reserve::where('book_id', $loan->book_id)->first();
+        $book = Book::find($loan->book_id);
 
         try {
             Borrow::create([
